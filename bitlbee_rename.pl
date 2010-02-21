@@ -1,3 +1,5 @@
+# Based on
+# http://github.com/avar/dotfiles/blob/master/.irssi/scripts/bitlbee_rename.pl
 use strict;
 use warnings;
 use Irssi;
