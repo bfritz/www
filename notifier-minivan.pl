@@ -13,10 +13,10 @@ use IPC::Message::Minivan;
 $VERSION = "0.01";
 %IRSSI = (
     authors     => 'Allan Willems Joergensen',
-    origauthors => 'Luke Macken, Paul W. Frields, Jared Quinn, Anton Berezin',
+    origauthors => 'Luke Macken, Paul W. Frields, Jared Quinn, Anton Berezin, Kristoffer Larsen',
     contact     => 'allan@nowhere,dk',
     name        => 'notifier-minivan.pl',
-    description => 'Use libnotify to alert the user of new messages or hilights through IPC::Message::Minivan',
+    description => 'Use Desktop Notifications to alert the user of new messages or hilights through IPC::Message::Minivan',
     license     => 'Beerware',
     url         => 'http://www.nowhere.dk/articles/irssi-notifications-minivan',
 );
