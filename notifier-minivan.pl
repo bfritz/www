@@ -1,7 +1,7 @@
 ## Put me in ~/.irssi/scripts, and then execute the following in irssi:
 ##
 ##       /load perl
-##       /script load notify
+##       /script load notifier-minivan
 ##
 
 use strict;
