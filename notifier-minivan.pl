@@ -16,7 +16,7 @@ $VERSION = "0.01";
     origauthors => 'Luke Macken, Paul W. Frields, Jared Quinn, Anton Berezin, Kristoffer Larsen',
     contact     => 'allan@nowhere,dk',
     name        => 'notifier-minivan.pl',
-    description => 'Use Desktop Notifications to alert the user of new messages or hilights through IPC::Message::Minivan',
+    description => 'Alert the user of new messages or hilights through IPC::Message::Minivan',
     license     => 'Beerware',
     url         => 'http://www.nowhere.dk/articles/irssi-notifications-minivan',
 );
@@ -24,10 +24,12 @@ $VERSION = "0.01";
 # Default settings in Irssi
 Irssi::settings_add_str('notifier','minivan_host', 'localhost');
 Irssi::settings_add_str('notifier','minivan_port', 6826);
+Irssi::settings_add_str('notifier','minivan_channel','#irssi');
 
 # Fetch settings from Irssi
 my $minivan_host = Irssi::settings_get_str('minivan_host');
 my $minivan_port = Irssi::settings_get_str('minivan_port');
+my $minivan_channel = Irssi::settings_get_str('minivan_channel');
 
 # Connect to the Minivan
 our $van = IPC::Message::Minivan->new(host => $minivan_host, port => $minivan_port);
@@ -39,7 +41,7 @@ sub notify {
     my $safemsg = HTML::Entities::encode($message, '<>&"');
 
     # Load everyone into the minivan
-    $van->msg("#irssi", {summary => $summary, msg => $safemsg});
+    $van->msg($minivan_channel, {summary => $summary, msg => $safemsg});
 }
 
 sub print_text_notify {
