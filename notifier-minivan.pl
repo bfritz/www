@@ -70,6 +70,12 @@ sub dcc_request_notify {
     notify($server, "DCC ".$dcc->{type}." request", $dcc->{nick});
 }
 
+sub notify_test {
+        notify('localhost', 'Test from Irssi', 'This is a test of Minivan notifications');
+}
+
+Irssi::command_bind('minivan-test', 'notify_test');
+
 Irssi::signal_add('print text', 'print_text_notify');
 Irssi::signal_add('message private', 'message_private_notify');
 Irssi::signal_add('dcc request', 'dcc_request_notify');
