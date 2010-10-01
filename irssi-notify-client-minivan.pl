@@ -20,6 +20,9 @@ my $notification = $notify->create(summary => 'Minivan', body => 'Connection est
 $notification->show();
 
 while (1) {
+	# Avoid tight loops by sleeping 5 seconds if IPC socket is disconnected
+	$van->{connected} or sleep 5;
+
 	# Ask minivan for new messages, wait 5 seconds
         # Restart the loop if we didn't get data
 	if (my $cmd = $van->get(5,[])) {
